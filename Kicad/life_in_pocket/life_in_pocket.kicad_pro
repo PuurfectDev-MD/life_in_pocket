@@ -523,7 +523,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../../3d models/Kicad export/pcbmodel.step",
       "svg": "",
       "vrml": ""
     },
