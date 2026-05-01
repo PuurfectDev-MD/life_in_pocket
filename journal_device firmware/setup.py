@@ -7,7 +7,8 @@ import asyncio
 import time
 from acamera import Camera, FrameSize, PixelFormat 
 
-
+import machine, network
+    
 class defineAllComp:
     def __init__(self):
         pass
@@ -23,17 +24,25 @@ class defineAllComp:
          print(f"SPI is initialized with baudrate {baudrate}")
          return spi
 
-    def defineTFT(self,spi, TFT_DC, TFT_CS, TFT_RST, rotation):
-          tft = st7789.ST7789(
+    def defineTFT(self,spi, mcp,TFT_DC, TFT_CS, rotation):
+        mcp.porta.mode &= ~(1 << 2)
+        # Reset Sequence: Low -> Wait -> High
+        mcp.porta.gpio &= ~(1 << 2)  # Pull Reset LOW
+        time.sleep_ms(100)
+        mcp.porta.gpio |= (1 << 2)   # Pull Reset HIGH
+        time.sleep_ms(100)
+        
+        
+        tft = st7789.ST7789(
         spi,
         240,
         240,
-        reset=Pin(TFT_RST, Pin.OUT),
+        reset=None,
         cs=Pin(TFT_CS, Pin.OUT),
         dc=Pin(TFT_DC, Pin.OUT),
         rotation=rotation)
-          print(f"TFT is initialized with rotation {rotation}")
-          return tft
+        print(f"TFT is initialized with rotation {rotation}")
+        return tft
     def defineI2S(self,BCK, WS):
         I2S = I2S(I2S.NUM0,                                  # create I2S peripheral to write audio
                 bck=BCK, ws=WS,   # sample data to an Adafruit I2S Amplifier
@@ -85,7 +94,35 @@ class defineAllComp:
         i2c = I2C(0, scl=Pin(scl_pin), sda=Pin(sda_pin))
         mcp = mcp23017.MCP23017(i2c, address=0x20) # 0x20 is default for A0,A1,A2 to GND
         
+        
+        input_mask = (1 << 4) | (1 << 6) | (1 << 7) | (1 << 8)
+        mcp.portb.mode |= input_mask
+        
+        mcp.portb.pullup &= ~input_mask
+        
+        
+        # 3. Interrupts
+        mcp.config.mirror = True 
+        mcp.portb.er_int |= input_mask
+    
         # Configure pins from schematic: GPB4, GPB5 (TTP223) and GPB6, GPB7 (Switches)
         # 0x00 is output, 0xFF is input. Let's set the whole B port as input:
-        mcp.portb.mode = 0xFF 
+   
         return mcp
+    
+    def read_expander_port_b(self, mcp):
+    # Just returns the raw integer value of the port
+        return mcp.portb.intcap
+    
+    
+    
+def do_connect():
+
+    wlan = network.WLAN()
+    wlan.active(True)
+    if not wlan.isconnected():
+        print('connecting to network...')
+        wlan.connect('ssid', 'key')
+        while not wlan.isconnected():
+            machine.idle()
+    print('network config:', wlan.ipconfig('addr4'))
