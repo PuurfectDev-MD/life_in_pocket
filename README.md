@@ -55,6 +55,16 @@ Change the WiFi credentials in [setup.py](firmware/setup.py)and paste your API k
 
 The firmware is not 100% complete yet. Once I get all the components in hand, I will be testing the existing code, fixing issues and adding features along the way.
 
+### BOM
+
+There are multiple BOM files for this project.
+
+- KiCad generated BOM: [life_in_pocket.csv](life_in_pocket.csv)
+- Full project cost approximation: [BOM.pdf](BOM.pdf)
+
+### Other files
+
+[Components.xlsx](Components.xlsx) contains two tables, one for SMD components and one for hand solder. This split was needed for the JLCPCB assembly service. The file was generated with the help of Claude using this reference file: [Components to SMD](Componets%20to%20SMD.pdf)
 
 ## Contributing
 
