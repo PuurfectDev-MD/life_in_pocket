@@ -9,7 +9,7 @@ Create an account at [Keep](https://keeplife.vercel.app/) and begin Keep-ing :)
 ---
 
 ## Why build life_in_pocket?
-I have always feared that life will just slip by while I am on autopilot. To tackle that fear I have always been keen on journalling and capturing moments to reminisce later. Building Keep and life_in_pocket has allowed me to do exactly that, capture life!
+I have always feared that life will just slip by while I am on autopilot. To tackle that fear I have always been keen on journalling and capturing moments to reminisce later. Building Keep and life_in_pocket has allowed me to do exactly that, capture life! I built this in the hopes of solving that fear/FOMO for me and potentially for others. 
 
 ---
 
@@ -59,8 +59,8 @@ The firmware is not 100% complete yet. Once I get all the components in hand, I 
 
 There are multiple BOM files for this project.
 
-- KiCad generated BOM: [life_in_pocket.csv](life_in_pocket.csv)
-- Full project cost approximation: [BOM.pdf](BOM.pdf)
+- KiCad generated BOM: [life_in_pocket.csv](BOM/life_in_pocket.csv)
+- Full project cost approximation: [BOM.pdf](BOM/BOM%20.pdf)
 
 ### Other files
 
