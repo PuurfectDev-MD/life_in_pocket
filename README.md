@@ -43,6 +43,18 @@ I have always feared that life will just slip by while I am on autopilot. To tac
 
 ---
 
+### How it works and how to make your own
+
+There is a custom built PCB designed in KiCad where you solder the necessary components, then upload the firmware. To get it working you need to set your WiFi credentials and paste your Keep API key into the firmware.
+
+Change the WiFi credentials in [setup.py](firmware/setup.py)and paste your API key from your Keep account in [actions.py](firmware/actions.py). Then 3D print the case using the files provided in the 3d models folder.
+
+**Firmware** — setup.py initialises all the communication protocols, components and WiFi connection. From there, main.py listens for control changes and switches the active page accordingly, which then handles input differently depending on what page you are on.
+
+**Hardware** — the components come together to create a polished physical experience. The TFT display handles the UI, the camera captures images, the mic module handles sound input and a speaker handles sound output. There are 4 inputs total, 2 capacitive TTP223 touch sensors and 2 MX switches. You capture memories through the camera and record voice memos through the mic, then hit upload and actions.py takes care of sending everything to your Keep account through the API.
+
+The firmware is not 100% complete yet. Once I get all the components in hand, I will be testing the existing code, fixing issues and adding features along the way.
+
 
 ## Contributing
 

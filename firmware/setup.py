@@ -8,6 +8,12 @@ import time
 from acamera import Camera, FrameSize, PixelFormat 
 
 import machine, network
+
+
+
+WIFI_SSID = ""
+WIFI_PASS = ""
+KEEP_API_KEY = ""
     
 class defineAllComp:
     def __init__(self):
@@ -116,13 +122,12 @@ class defineAllComp:
     
     
     
-def do_connect():
-
+def wifi_connect():
     wlan = network.WLAN()
     wlan.active(True)
     if not wlan.isconnected():
         print('connecting to network...')
-        wlan.connect('ssid', 'key')
+        wlan.connect(WIFI_SSID, WIFI_PASS)
         while not wlan.isconnected():
             machine.idle()
     print('network config:', wlan.ipconfig('addr4'))
