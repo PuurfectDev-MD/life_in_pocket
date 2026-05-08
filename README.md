@@ -1,6 +1,6 @@
 # Life in Pocket
 
-![Poster](images/poster.png)
+![Poster](zine.png)
 
 This is a self-claimed cutesy 😛, portable, all-in-one journalling device for you to keep track of your life moments and memories through images taken through the inbuilt camera and voice recording taken through the inbuilt microphone. You can save memories with a title, detailed description and multiple pictures to enrich your journal timeline thorugh the means of an api to the website [Keep](https://keeplife.vercel.app/).
 
