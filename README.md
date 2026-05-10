@@ -8,7 +8,7 @@ Create an account at [Keep](https://keeplife.vercel.app/) and begin Keep-ing :)
 
 ---
 
-## Why build life_in_pocket?
+# Why build life_in_pocket?
 I have always feared that life will just slip by while I am on autopilot. To tackle that fear I have always been keen on journalling and capturing moments to reminisce later. Building Keep and life_in_pocket has allowed me to do exactly that, capture life! I built this in the hopes of solving that fear/FOMO for me and potentially for others. 
 
 ---
@@ -31,7 +31,7 @@ I have always feared that life will just slip by while I am on autopilot. To tac
 
 ![PCB2](images/pcb2.png)
 
-## Features
+# Features
 
 **Capture Moments** — With the ondevice camera take pcitures and videos and save to sd card or/and upload to your keep account.
 
@@ -41,9 +41,49 @@ I have always feared that life will just slip by while I am on autopilot. To tac
 
  See [Keep](https://github.com/PuurfectDev-MD/keep) for more details on the API and account.
 
+
 ---
 
-### How it works and how to make your own
+# Project Structure
+
+###  3d case assets
+* **[3D Models](./3d%20models/)**
+    * `/Fusion 360`: Original source files for the case design.
+    * `/Kicad export`: 3D PCB model exported from kicad used in case modelling to ensure a perfect mechanical fit for the enclosure.
+
+
+### PCB assets
+* **[PCB](./PCB/)**
+    * `/Gerber file`: Contains the `.zip` archive ready for upload to PCB manufacturers.
+    * `/Kicad`: Full Kicad project source files.
+
+### Documentation & BOM
+* **[BOM](./BOM/)**
+    * [`BOM.pdf`](./BOM/BOM%20.pdf): Comprehensive breakdown of the total project cost approximation.
+    * [`life_in_pocket.csv`](./BOM/life_in_pocket.csv): Technical Bill of Materials generated directly from KiCad.
+
+* **[`Components.xlsx`](./Components.xlsx)**
+    * Detailed tables for **SMD vs. Hand-Solder** components, optimized for JLCPCB assembly services.
+    * *Reference:* [Components to SMD.pdf](./Componets%20to%20SMD.pdf).
+
+* **[`Journal.md`](./life-in-pocket-journal.md)**
+    * The complete development log of the project from start to finish. 
+    - *Last updated: May 10, 2025.*
+
+### Software
+* **[Firmware](./firmware/)**
+    * Contains all libraries and program files. This folder must be flashed to the ESP32-S3 device.
+
+### Media assets
+* **[Images](./images/)**
+    * Assets and screenshots used in the `README.md`.
+
+* **[`zine.png`](./zine.png)**
+    * The project poster created for Fallout.
+
+---
+
+# How it works and how to make your own
 
 There is a custom built PCB designed in KiCad where you solder the necessary components, then upload the firmware. To get it working you need to set your WiFi credentials and paste your Keep API key into the firmware.
 
@@ -55,18 +95,9 @@ Change the WiFi credentials in [setup.py](firmware/setup.py)and paste your API k
 
 The firmware is not 100% complete yet. Once I get all the components in hand, I will be testing the existing code, fixing issues and adding features along the way.
 
-### BOM
 
-There are multiple BOM files for this project.
 
-- KiCad generated BOM: [life_in_pocket.csv](BOM/life_in_pocket.csv)
-- Full project cost approximation: [BOM.pdf](BOM/BOM%20.pdf)
-
-### Other files
-
-[Components.xlsx](Components.xlsx) contains two tables, one for SMD components and one for hand solder. This split was needed for the JLCPCB assembly service. The file was generated with the help of Claude using this reference file: [Components to SMD](Componets%20to%20SMD.pdf)
-
-## Contributing
+# Contributing
 
 Feel free to reach out with suggestions or improvements on the pcb, 3d case or the website. I would be happy to work with anyone who wants to contribute to the project!
 
