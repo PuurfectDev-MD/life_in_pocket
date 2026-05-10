@@ -45,43 +45,41 @@ I have always feared that life will just slip by while I am on autopilot. To tac
 ---
 
 # Project Structure
+### 3D Case Assets
+| Path / File | Description | Notes |
+| :--- | :--- | :--- |
+| **[3D Models](./3d%20models/)** | Root directory for all CAD data | — |
+| `↳ /Fusion 360` | Original source files for the case design | — |
+| `  ↳ assembly.f3d` | Master file with front/backplates & holes | **Use for printing** |
+| `  ↳ frontplate.f3d` | Individual front component | Import file |
+| `  ↳ backplate.f3d` | Individual back component | Import file |
+| `  ↳ STEP files` | Standardized CAD format | Interoperability |
+| `  ↳ STL files` | 3D printable mesh files | Slicer ready |
+| `↳ /Kicad export` | 3D PCB model exported from KiCad | For mechanical fit |
 
-###  3d case assets
-* **[3D Models](./3d%20models/)**
-    * `/Fusion 360`: Original source files for the case design.
-    * `/Kicad export`: 3D PCB model exported from kicad used in case modelling to ensure a perfect mechanical fit for the enclosure.
+### ⚡ PCB Assets
+| Path / File | Description |
+| :--- | :--- |
+| **[PCB](./PCB/)** | Root directory for electronics |
+| `↳ /Gerber file` | Contains `.zip` archive ready for manufacturing |
+| `↳ /Kicad` | Full KiCad project source files |
 
+###  Documentation & BOM
+| File | Description | Format |
+| :--- | :--- | :--- |
+| **[BOM](./BOM/)** | Bill of Materials directory | Folder |
+| `↳ BOM.pdf` | Comprehensive breakdown of project cost | [View PDF](./BOM/BOM%20.pdf) |
+| `↳ BOM.csv` | BOM converted for spreadsheet use | [View CSV](./BOM/BOM.csv) |
+| `↳ life_in_pocket.csv` | Technical BOM generated directly from KiCad | [View CSV](./BOM/life_in_pocket.csv) |
+| **[Components.xlsx](./Components.xlsx)** | SMD vs. Hand-Solder tables (JLCPCB optimized) | Excel |
+| **[Journal.md](./life-in-pocket-journal.md)** | Complete development log (Updated: May 10, 2025) | Markdown |
 
-### PCB assets
-* **[PCB](./PCB/)**
-    * `/Gerber file`: Contains the `.zip` archive ready for upload to PCB manufacturers.
-    * `/Kicad`: Full Kicad project source files.
-
-### Documentation & BOM
-* **[BOM](./BOM/)**
-    * [`BOM.pdf`](./BOM/BOM%20.pdf): Comprehensive breakdown of the total project cost approximation.
-    * ['BOM.csv](./BOM/BOM.csv): BOM.pdf coverted to .csv
-    * [`life_in_pocket.csv`](./BOM/life_in_pocket.csv): Technical Bill of Materials generated directly from KiCad.
-
-* **[`Components.xlsx`](./Components.xlsx)**
-    * Detailed tables for **SMD vs. Hand-Solder** components, optimized for JLCPCB assembly services.
-    * *Reference:* [Components to SMD.pdf](./Componets%20to%20SMD.pdf).
-
-* **[`Journal.md`](./life-in-pocket-journal.md)**
-    * The complete development log of the project from start to finish. 
-    - *Last updated: May 10, 2025.*
-
-### Software
-* **[Firmware](./firmware/)**
-    * Contains all libraries and program files. This folder must be flashed to the ESP32-S3 device.
-
-### Media assets
-* **[Images](./images/)**
-    * Assets and screenshots used in the `README.md`.
-
-* **[`zine.png`](./zine.png)**
-    * The project poster created for Fallout.
-
+### Software & Media
+| Category | Path / File | Description |
+| :--- | :--- | :--- |
+| **Software** | **[Firmware](./firmware/)** | Libraries and program files for ESP32-S3 |
+| **Media** | **[Images](./images/)** | Assets and screenshots used in README |
+| **Media** | **[`zine.png`](./zine.png)** | Project poster created for Fallout |
 ---
 
 # How it works and how to make your own
