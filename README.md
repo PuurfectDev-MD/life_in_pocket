@@ -60,6 +60,7 @@ I have always feared that life will just slip by while I am on autopilot. To tac
 ### Documentation & BOM
 * **[BOM](./BOM/)**
     * [`BOM.pdf`](./BOM/BOM%20.pdf): Comprehensive breakdown of the total project cost approximation.
+    * ['BOM.csv](./BOM/BOM.csv): BOM.pdf coverted to .csv
     * [`life_in_pocket.csv`](./BOM/life_in_pocket.csv): Technical Bill of Materials generated directly from KiCad.
 
 * **[`Components.xlsx`](./Components.xlsx)**
